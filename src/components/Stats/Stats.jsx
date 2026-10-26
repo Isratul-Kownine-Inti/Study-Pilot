@@ -10,7 +10,7 @@ const Stats = () => {
             </div>
              <div className='text-center'>
                 <p className='text-emerald-700 font-semibold text-2xl'>1.2M</p>
-                <span className='text-slate-400 font-medium text-sm'>Tasks checked off</span>
+                <span className='text-slate-400 font-medium text-sm'>Tasks completed</span>
             </div>
              <div className='text-center'>
                 <p className='text-emerald-700 font-semibold text-2xl'>89%</p>

@@ -8,7 +8,7 @@ const Banner = () => {
         <div className='mt-5 container mx-auto text-center space-y-4 '>
             <span className="badge font-semibold ">Plan Your Day. Master Your Goals.</span>
             <h1 className='font-bold text-3xl text-black'>Turn your plans into progress,<br></br> one day at a time!</h1>
-            <p className='text-slate-500 font-medium  md:ml-60 w-full md:w-[60%]'>Turn your daily priorities into achievable tasks, protect your focus, and track how far you've come. Your goals feel closer when your days have a plan.</p>
+            <p className='text-slate-500 font-medium  md:ml-60 w-full md:w-[60%] px-2 md:px-1 '>Turn your daily priorities into achievable tasks, protect your focus, and track how far you've come. Your goals feel closer when your days have a plan.</p>
             <div className='flex flex-col md:flex-row justify-center gap-3 px-2'>
                 <button className='btn bg-emerald-700 text-white rounded-2xl'>Start for free <FaArrowRight className='text-white' /></button>
                 <button className='btn  text-black rounded-2xl '>See how it works</button>
