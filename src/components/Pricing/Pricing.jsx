@@ -42,7 +42,7 @@ const Pricing = () => {
                     </div>
                 </div>
 
-                  <div className="card w-90 md:w-96 bg-base-100 shadow-sm text-start">
+                  <div className="card w-90 md:w-96 bg-base-100 shadow-sm text-start border-2 border-emerald-600">
                     <div className="card-body">
                         <h2 className="text-3xl font-bold text-black">Pro</h2>
                         <span className=" text-slate-700 font-semibold">For students who want the full picture</span>
@@ -59,7 +59,7 @@ const Pricing = () => {
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                <span>AI dat planning</span>
+                                <span>AI day planning</span>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>

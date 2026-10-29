@@ -2,9 +2,12 @@
 import './App.css'
 import AiDayPlanning from './components/AiDayPlanning/AiDayPlanning'
 import Banner from './components/Banner/Banner'
+import FAQ from './components/FAQ/FAQ'
 import FeaturedSection from './components/FeaturedSection/FeaturedSection'
+import Footer from './components/Footer/Footer'
 import HowItWorks from './components/HowItWorks/HowItWorks'
 import NavBar from './components/Navbar/NavBar'
+import NextStudySession from './components/NextStudySession/NextStudySession'
 import Pricing from './components/Pricing/Pricing'
 import Review from './components/Review/Review'
 import Stats from './components/Stats/Stats'
@@ -24,6 +27,9 @@ function App() {
  <AiDayPlanning></AiDayPlanning>
  <Review></Review>
  <Pricing></Pricing>
+ <FAQ></FAQ>
+ <NextStudySession></NextStudySession>
+ <Footer></Footer>
     </>
   )
 }
