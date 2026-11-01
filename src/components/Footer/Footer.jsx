@@ -4,7 +4,7 @@ import { LuNotebookPen } from 'react-icons/lu';
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-10">
-      <aside>
+      <aside className='pl-2 md:pl-10'>
 
         <p>
           <a className="flex gap-2 md:text-2xl font-semibold"><LuNotebookPen className='bg-emerald-600 rounded text-white px-1 font-bold text-2xl' />StudyPilot</a>
@@ -16,7 +16,7 @@ const Footer = () => {
     
 
      
-      </aside>
+      </aside> 
       <nav>
         <h6 className="footer-title">Product</h6>
         <a className="link link-hover">Features</a>
@@ -35,6 +35,7 @@ const Footer = () => {
         <a className="link link-hover">Study tips</a>
         <a className="link link-hover">Contacts</a>
       </nav>
+            
     </footer>
   );
 };

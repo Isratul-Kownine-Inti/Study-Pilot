@@ -1,5 +1,6 @@
 import React from 'react';
 import { LuNotebookPen } from 'react-icons/lu';
+import { Link } from 'react-router';
 
 const NavBar = () => {
     return (
@@ -13,7 +14,8 @@ const NavBar = () => {
                         <ul
                             tabIndex={-1}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-medium  text-slate-600">
-                            <li><a >Features</a></li>
+                            <li><Link to="/features">Features</Link></li>
+
                             <li><a>How it works</a></li>
                             <li><a>Pricing</a></li>
                             <li><a>FAQ</a></li>
@@ -23,14 +25,16 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1 font-medium text-slate-600">
-                        <li><a>Features</a></li>
+                        <li><Link to="/features">Features</Link></li>
                         <li><a>How it works</a></li>
                         <li><a>Pricing</a></li>
                         <li><a>FAQ</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className='font-bold mr-5 text-black'>Log in</button>
+                    <Link to='/log-in'>
+                       <button className='btn font-bold mr-5 text-black hover:bg-emerald-700 hover:text-white'>Log in</button>
+                    </Link>
                     <button className='btn bg-emerald-700 text-white rounded-xl'>Get Started</button>
                 </div>
             </div>
