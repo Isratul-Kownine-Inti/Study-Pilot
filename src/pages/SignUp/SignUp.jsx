@@ -2,7 +2,7 @@
 import React from 'react';
 import { LuNotebookPen } from 'react-icons/lu';
 import { Link } from 'react-router';
- import { ToastContainer, toast } from 'react-toastify';
+ import { toast } from 'react-toastify';
 
 const SignUp = () => {
   
@@ -13,32 +13,30 @@ const SignUp = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
-
-        // if (password !== confirmPassword) {
-        //      toast.error("Password doesn't match!");
-        //     return;
-        // }
-        // else{
-        //     toast.success("Your account is successfully created!")
-        // }
-
-        try{
-            const response = await fetch("https://studyflow-backend-rho.vercel.app/api/auth/register",{
-                method:"POST",
-                headers:{
-                    "Content-Type" : "application/json"
-                },
-                body: JSON.stringify({name,email,password}),
-            })
-            const data = await response.json()
-            console.log(data,"data")
-            toast.success(data.message||"Your account is successfully created!")
-        }
-        catch(error)
-        {
-            toast.error("something went wrong! ")
-        }
-
+     
+          try {
+                    const response = await fetch("https://studyflow-backend-rho.vercel.app/api/auth/register", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        credentials: "include",
+                        body: JSON.stringify({ name,email, password }),
+                    })
+                    const data = await response.json()
+                    console.log(data, "data")
+                    if (data.success) {
+                        toast.success(data.message || "Your account is created successfully!")
+                    }
+                    else {
+                        throw new Error(data.message || "Failed to create an account")
+                    }
+                }
+                catch (error) {
+                    toast.error(error.message || "An error occurred, please try again!")
+        
+                }
+    
 
 
         console.log(email)
@@ -66,10 +64,8 @@ const SignUp = () => {
                         <p className="text-indigo-100 mt-5 leading-relaxed">
                             Create your account and build better study habits.
                             Stay focused, organize your tasks, and achieve your goals
-                            one day at a time.                        </p>
+                            one day at a time.</p>
                     </div>
-
-
                 </div>
 
                 {/* Right Side - Login Form */}
@@ -84,7 +80,6 @@ const SignUp = () => {
 
                         </p>
                     </div>
-
                     <form className="space-y-5" onSubmit={handleFormSubmit}>
                         
                         <div>
@@ -195,7 +190,7 @@ const SignUp = () => {
 
                 </div>
             </div>
-            <ToastContainer />
+    
         </div>
     );
 };

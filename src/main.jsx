@@ -8,6 +8,10 @@ import Features from './pages/Features/Features'
 import MainLayOut from './layout/MainLayOut'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
+ import { ToastContainer } from 'react-toastify';
+import AuthContext from './context/AuthContext'
+import PrivateRoute from './PrivateRoute/PrivateRoute'
+import Private from './pages/Private/Private'
 
 
 const router = createBrowserRouter([
@@ -31,6 +35,12 @@ const router = createBrowserRouter([
   {
     path:"sign-up",
     element:<SignUp></SignUp>
+  },
+  {
+    path:"/private",
+    element: <PrivateRoute>
+        <Private></Private>
+    </PrivateRoute>
   }
       
 ]
@@ -52,6 +62,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthContext>
+        <RouterProvider router={router}></RouterProvider>
+            <ToastContainer />
+    </AuthContext>
+  
   </StrictMode>,
 )

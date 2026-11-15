@@ -1,17 +1,50 @@
 
 import React from 'react';
 import { LuNotebookPen } from 'react-icons/lu';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
 
-const Login = () => {
+const Login =  () => {
+    const {user,setUser}= useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
 
-    const handleFormSubmit = (event)=>{
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email)
-        console.log(password)
+        
+
+
+        try {
+            const response = await fetch("https://studyflow-backend-rho.vercel.app/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include",
+                body: JSON.stringify({ email, password }),
+            })
+            const data = await response.json()
+            console.log(data, "data")
+            if (data.success) {
+                toast.success(data.message || "You logged in successfully")
+                setUser(data.data.user)
+                navigate(from)
+            }
+            else {
+                throw new Error(data.message || "Failed to sign in")
+            }
+        }
+        catch (error) {
+            toast.error(error.message || "An error occurred, please try again!")
+
+        }
+
     }
+    console.log(user)
     return (
         <div className="min-h-screen flex items-center justify-center mt-5  p-5">
 
@@ -20,7 +53,7 @@ const Login = () => {
                 {/* Left Side - Welcome Section */}
                 <div className="hidden md:flex flex-col justify-between bg-emerald-700 text-white p-12">
                     <div>
-                        <h2 className="text-3xl font-bold flex gap-2"><LuNotebookPen/> StudyPilot</h2>
+                        <h2 className="text-3xl font-bold flex gap-2"><LuNotebookPen /> StudyPilot</h2>
                         <p className="text-indigo-200 mt-2">Your goals. Your progress. Your success.</p>
                     </div>
 
@@ -35,7 +68,7 @@ const Login = () => {
                         </p>
                     </div>
 
-                   
+
                 </div>
 
                 {/* Right Side - Login Form */}
