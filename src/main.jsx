@@ -12,6 +12,8 @@ import SignUp from './pages/SignUp/SignUp'
 import AuthContext from './context/AuthContext'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
 import Private from './pages/Private/Private'
+import AdminLayout from './layout/AdminLayout'
+import Subject from './pages/Subject/Subject'
 
 
 const router = createBrowserRouter([
@@ -44,6 +46,18 @@ const router = createBrowserRouter([
   }
       
 ]
+  },
+  {
+    path:"/dashBoard",
+    element:<PrivateRoute>
+      <AdminLayout></AdminLayout>
+    </PrivateRoute>,
+    children:[
+         {
+          path:"subject",
+          element:<Subject></Subject>
+         }
+    ]
   },
 
      {
